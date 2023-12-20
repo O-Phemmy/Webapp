@@ -29,7 +29,7 @@ pipeline{
         stage('Run the docker image on the EC2 instance'){
             steps{
                 echo "Running the docker image on EC2 instance"
-                sh "docker run -d -p 9900:3000 fjbodun/jenkins_demo"
+                sh "docker run -d -p 8000:3000 fjbodun/jenkins_demo"
             }
         }
     }
