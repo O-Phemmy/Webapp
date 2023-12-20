@@ -10,7 +10,7 @@ pipeline{
         stage('Build docker image'){
             steps{
                 echo "Building the docker image from Dockerfile in src directory"
-                sh 'docker build -t kushaggarwal/nodejs-app .'
+                sh 'docker build -t fjbodun/jenkins_demo .'
             }
         }
         stage('Login into the dockerhub account'){
@@ -23,13 +23,13 @@ pipeline{
         stage('Push docker image on dockerhub online'){
             steps{
                 echo "Execute the pushing command for image onto dockerhub"
-                sh "docker push kushaggarwal/nodejs-app"
+                sh "docker push fjbodun/jenkins_demo"
             }
         }
         stage('Run the docker image on the EC2 instance'){
             steps{
                 echo "Running the docker image on EC2 instance"
-                sh "docker run -d -p 9900:3000 kushaggarwal/nodejs-app"
+                sh "docker run -d -p 9900:3000 fjbodun/jenkins_demo"
             }
         }
     }
